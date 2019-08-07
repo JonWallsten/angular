@@ -24,7 +24,6 @@ import {isStylingContext} from '../styling_next/util';
 import {attachDebugObject} from '../util/debug_utils';
 import {getTNode, unwrapRNode} from '../util/view_utils';
 
-
 /*
  * This file contains conditionally attached classes which provide human readable (debug) level
  * information for `LView`, `LContainer` and other internal data structures. These data structures
@@ -55,7 +54,7 @@ import {getTNode, unwrapRNode} from '../util/view_utils';
  */
 
 
-export const LViewArray = ngDevMode && createNamedArrayType('LView');
+export const LViewArray = typeof ngDevMode !== 'undefined' && createNamedArrayType('LView');
 let LVIEW_EMPTY: unknown[];  // can't initialize here or it will not be tree shaken, because `LView`
                              // constructor could have side-effects.
 /**
